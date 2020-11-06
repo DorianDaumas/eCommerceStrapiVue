@@ -55,7 +55,7 @@
             </div>
             <div class="flex-column">
                 <h2 >Sous-total ({{cartProducts.length}} articles)</h2>
-                <h1 >{{new Intl.NumberFormat().format(total) }} {{total}} €</h1>
+                <h1 >{{new Intl.NumberFormat().format(total) }} €</h1>
                 <v-btn
                     color="blue-grey"
                     class="btn-add-cart ma-2 white--text"
