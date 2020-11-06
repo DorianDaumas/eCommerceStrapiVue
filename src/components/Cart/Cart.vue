@@ -44,7 +44,7 @@
                             width="220px"
                             height="220px"
                             class="picture-product"
-                            :src="`http://localhost:1337${product.Image[0].url}`"
+                            :src="`https://ecommercestrapi.herokuapp.com${product.Image[0].url}`"
                         ></v-img>
                     </div>
 

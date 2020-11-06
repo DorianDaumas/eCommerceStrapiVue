@@ -6,7 +6,7 @@
                 <p>x{{product.checkQuantity}}</p>
                 <v-img
                     class="picture-product"
-                    :src="`http://localhost:1337${product.Image[0].url}`"
+                    :src="`https://ecommercestrapi.herokuapp.com${product.Image[0].url}`"
                 ></v-img>
                 <li class="Title">{{product.Title}}</li>
                 <v-btn @click.stop.prevent="deleteItem(product)" class="btn-remove-cart" icon >

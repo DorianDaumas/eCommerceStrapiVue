@@ -7,11 +7,11 @@
             <v-col cols="12" md="6">
                 <div class="flex-details-image">
                     <div class="current-img-size">
-                        <v-img style='margin: auto' :src="img ? `http://localhost:1337${img}` : `http://localhost:1337${product.Image[0].url}`" ></v-img>
+                        <v-img style='margin: auto' :src="img ? `https://ecommercestrapi.herokuapp.com${img}` : `https://ecommercestrapi.herokuapp.com${product.Image[0].url}`" ></v-img>
                     </div>
                     <div class="flex-details-image-slide">
                         <div class="other-image" v-for="(productImage, index) in product.Image" :key="index">
-                            <v-img class="img-slide" @click='changeImg(productImage.url)' height="100" width="100" :src="`http://localhost:1337${productImage.url}`" ></v-img>
+                            <v-img class="img-slide" @click='changeImg(productImage.url)' height="100" width="100" :src="`https://ecommercestrapi.herokuapp.com${productImage.url}`" ></v-img>
                         </div>
                     </div>
                 </div>
