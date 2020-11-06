@@ -9,7 +9,7 @@
         >
         <v-img
             class="imgResize"
-            :src="`https://ecommercestrapi.herokuapp.com${product.Image[0].url}`"
+            :src="`${product.Image[0].url}`"
         ></v-img>
 
         <h1 class="product-title">{{product.Title}}</h1>
