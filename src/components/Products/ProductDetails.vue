@@ -7,11 +7,11 @@
             <v-col cols="12" md="6">
                 <div class="flex-details-image">
                     <div class="current-img-size">
-                        <v-img style='margin: auto' :src="img ? `https://ecommercestrapi.herokuapp.com${img}` : `https://ecommercestrapi.herokuapp.com${product.Image[0].url}`" ></v-img>
+                        <v-img style='margin: auto' :src="img ? `${img}` : `${product.Image[0].url}`" ></v-img>
                     </div>
                     <div class="flex-details-image-slide">
                         <div class="other-image" v-for="(productImage, index) in product.Image" :key="index">
-                            <v-img class="img-slide" @click='changeImg(productImage.url)' height="100" width="100" :src="`https://ecommercestrapi.herokuapp.com${productImage.url}`" ></v-img>
+                            <v-img class="img-slide" @click='changeImg(productImage.url)' height="100" width="100" :src="`${productImage.url}`" ></v-img>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                 <v-row  style="justify-content:space-evenly;" align="center">
                     <v-col v-for="(article, index) in similaire" class="background-article" :key="index" cols="12" md="4">
                     <v-card @click='showProduct(article)'  class="flex-article-similaire" >
-                        <v-img class="img-article" width="210" :src="`http://localhost:1337${article.Image[0].url}`" ></v-img>
+                        <v-img class="img-article" width="210" :src="`${article.Image[0].url}`" ></v-img>
 
                             <v-card-title class="Title-article">{{article.Title}}</v-card-title>
                             <v-card-title class="stock-good" v-if="article.stocks > 15"> En stocks </v-card-title>
