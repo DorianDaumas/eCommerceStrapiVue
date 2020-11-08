@@ -32,7 +32,7 @@ export default {
     },
     data() {
         return {
-            items: null    ,
+            items: null,
             values:null
         }
     }, 
@@ -46,6 +46,8 @@ export default {
             let allProducts = response.data
             this.items = allProducts
         })
+
+     
     },
     computed: {
         ...mapState({

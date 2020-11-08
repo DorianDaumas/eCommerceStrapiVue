@@ -110,7 +110,7 @@ export default {
   },
 
   methods: {
-    
+
     showProduct(values){
 
       this.$router.push(`/product/${values.id}`)
@@ -161,6 +161,7 @@ export default {
   created() {
     this.getProducts()
   },
+ 
 
 }
 </script>

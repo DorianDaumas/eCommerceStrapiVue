@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div style="background: white!important" >
         <div class="card" v-if="products !== null"> 
             <v-card
                 v-for="(product, index) in products" :key="index"
@@ -81,8 +81,8 @@
             </v-card-text>
         </v-card>
     </div>
-    <div v-else>
-        <p>Chargement des produits</p>
+    <div class="chargement" v-else>
+        <h1 style='text-align: center'>Chargement des produits</h1>
         <div class="sk-folding-cube">
             <div class="sk-cube1 sk-cube"></div>
             <div class="sk-cube2 sk-cube"></div>
@@ -210,6 +210,10 @@ export default {
 </script>
 <style>
 
+.chargement{
+    margin-top: 100px;
+    background: white!important;
+}
 .flex-add-quantity{
     display: flex;
     align-items: center;

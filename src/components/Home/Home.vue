@@ -1,7 +1,7 @@
 <template>
     <div id="flex">
         <Sidebar />
-        <div class="product-component" v-bind:class="{ 'product-component-menu' : this.open }">
+        <div class="product-component-menu" v-bind:class="{ 'product-component' : this.open }">
             <FilterSelector :getProducts="getProducts"/>
             <ProductList :getProducts="getProducts"  />
         </div>
@@ -83,10 +83,11 @@ export default {
     padding: 10px;
 }
 @media screen and (max-width: 700px) {
-    .product-component {
+    /* .product-component {
         left: 170px!important;
         width: calc(100% - 200px)!important
-    }
+    } */
+
 }
 
 .product-component-menu{
@@ -98,8 +99,9 @@ export default {
     flex-direction: column;
     top: 90px;
     margin: 10px;
-    left: 0!important;
-    width: 100%!important;
+    left: 400px;
+    width: calc(100% - 500px);
+    
     transition: 0.3s;
 }
 .product-component{
@@ -111,7 +113,7 @@ export default {
     justify-content: center;
     flex-direction: column;
     top: 90px;
-    left: 400px;
-    width: calc(100% - 500px);
+    left: 0;
+    width: 100%;
 }
 </style>
