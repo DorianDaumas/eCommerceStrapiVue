@@ -122,6 +122,7 @@ export default {
       })
     },
     goBack(){
+      this.$store.commit("toggleMenu/TOGGLE_MENU")
       this.$router.push('/')
     },
     goCart(){

@@ -32,6 +32,7 @@ export default {
     }, 
     methods: {
         showProduct(product){
+            this.$store.commit("toggleMenu/TOGGLE_MENU")
             this.$router.push(`/product/${product.id}`)
         },
         deleteItem(product){

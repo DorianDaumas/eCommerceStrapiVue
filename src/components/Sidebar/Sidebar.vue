@@ -38,6 +38,7 @@ export default {
     }, 
     methods: {
         showProduct(values){
+            this.$store.commit("toggleMenu/TOGGLE_MENU")
             this.$router.push(`/product/${values.id}`)
         },
     },

@@ -10,6 +10,7 @@
                     :label="categorie"
                     :value="categorie"
                     @change="filter"
+                    @click='toggleMenu'
                 ></v-checkbox>
                 
             </v-container>
@@ -55,7 +56,10 @@ export default {
         filter(value){
             this.$store.dispatch('filter/FILTERED_CATEGORIE', value)
             window.scrollTo(0,0);
-        }
+        },
+        toggleMenu(){
+            this.$store.commit("toggleMenu/TOGGLE_MENU")
+        },
     },
 }
 </script>
