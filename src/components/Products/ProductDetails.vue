@@ -211,7 +211,7 @@ export default {
 }
 .Title-article{
     text-transform: uppercase;
-    width: 266px;
+    width: 100%!important;
     color: #3e3f43!important;
     margin: auto;
     text-align: center;
@@ -227,7 +227,8 @@ export default {
 }
 
 .background-article{
-    background: white;
+    /* background: white; */
+    padding: 7px;
     border-radius: 4px;
 }
 
