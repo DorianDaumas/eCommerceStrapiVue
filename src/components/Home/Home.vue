@@ -1,7 +1,7 @@
 <template>
     <div id="flex">
         <Sidebar />
-        <div class="product-component">
+        <div class="product-component" v-bind:class="{ 'product-component-menu' : this.open }">
             <FilterSelector :getProducts="getProducts"/>
             <ProductList :getProducts="getProducts"  />
         </div>
@@ -14,6 +14,8 @@ import Sidebar from '../Sidebar/Sidebar'
 import ProductList from '../Products/ProductList'
 import {BaseUrl} from '../../api'
 import axios from 'axios'
+import { mapState  } from "vuex";
+
 export default {
 
     components:{
@@ -30,6 +32,9 @@ export default {
     }, 
 
     computed: {
+        ...mapState({
+            open: state => state.toggleMenu.toggle, 
+        }),
         choosenCategorie() {
             return this.$store.state.filter.choosenCategorie
         },
@@ -83,7 +88,22 @@ export default {
         width: calc(100% - 200px)!important
     }
 }
+
+.product-component-menu{
+    display: flex;
+    flex-flow: wrap;
+    background: #F3F3F5;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    top: 90px;
+    margin: 10px;
+    left: 0!important;
+    width: 100%!important;
+    transition: 0.3s;
+}
 .product-component{
+    transition: 0.3s;
     display: flex;
     flex-flow: wrap;
     background: #F3F3F5;

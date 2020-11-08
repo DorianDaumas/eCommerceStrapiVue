@@ -5,10 +5,6 @@
             <div>
                 
                 <ul class="flex-cart border"  v-for="(product, index) in cartProducts" :key="index" >
-                    <div>
-                        
-                        
-                    </div>
                     
                     <div class="placement-info">
                         <li class="Title">{{product.Title}}</li>
@@ -48,7 +44,7 @@
                         ></v-img>
                     </div>
 
-                    <v-btn @click.stop.prevent="deleteItem(product)" style="margin-left: 35px;" class="btn-remove-cart" icon >
+                    <v-btn @click.stop.prevent="deleteItem(product)" style="margin-left: 35px;" class="btn-remove-cart btn-remove" icon >
                         <v-icon>mdi-cart-remove</v-icon>
                     </v-btn>
                 </ul>
@@ -151,6 +147,41 @@ export default {
 
 <style scoped>
 
+@media screen and (max-width: 700px) {
+        .flex-cart {
+            flex-direction: column!important;
+        }
+        .placement-cart{
+            flex-direction: column!important;
+            justify-content: center;
+        }
+        .placement-info{
+            margin-right: 0px!important;
+        }
+        .flex-column{
+            width: 100%!important;
+        }
+    }
+@media screen and (max-width: 1100px) {
+        .flex-cart {
+            flex-direction: column!important;
+        }
+        .placement-cart{
+            flex-direction: column!important;
+            justify-content: center;
+        }
+        .placement-info{
+            margin-right: 0px!important;
+        }
+        .flex-column{
+            width: 100%!important;
+        }
+        .btn-remove{
+            margin: 10px 0!important;
+        }
+        
+    }
+
 #redirect{
     color: #2196F3;
     text-transform: uppercase;
@@ -174,7 +205,7 @@ export default {
 }
 .placement-info{
     width: 200px;
-    margin-right: 20px;
+    margin-right: 100px;
 }
 .placement-cart{
     margin-top: 50px;

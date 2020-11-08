@@ -9,31 +9,35 @@
       
 
 
-      <v-app-bar-nav-icon v-else ></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click='toggleMenu' v-else ></v-app-bar-nav-icon>
       
       <v-toolbar-title id="title-app">E-commerce</v-toolbar-title>
 
       
     <v-spacer></v-spacer> 
       <v-autocomplete
+              class="Autocomplete"
               v-model="values"
               :items="items"
               label="Chercher un produit..."
               item-text="Title"
               style="margin-top: 30px;"
               item-value="id"
-
               return-object
               @change='showProduct(values)'
               append-icon="mdi-magnify"
-          ></v-autocomplete>
-    <v-spacer></v-spacer> 
+      ></v-autocomplete>
+      <v-spacer></v-spacer> 
+      
+      <v-spacer class="spacer-mobile"></v-spacer>   
       
       <v-btn @click="goCart" :disabled="cartProducts.length === 0" icon>
         <span :class="[cartProducts.length > 0 ? activeClass : errorClass]">{{cartProducts.length}}</span>
         <v-icon>mdi-cart</v-icon>
       </v-btn>
-
+      
+      <v-spacer class="spacer-mobile"></v-spacer> 
+      
       <div class="text-center">
         <v-menu offset-y>
           <template v-slot:activator="{ on, attrs }">
@@ -124,6 +128,10 @@ export default {
         this.$router.push('/Panier')     
     },
 
+    toggleMenu(){
+      this.$store.commit("toggleMenu/TOGGLE_MENU")
+    },
+
     getProducts(){
       axios.get(`${BaseUrl}Products`, {}).then(response => {
           let allProducts = response.data
@@ -134,6 +142,8 @@ export default {
   },
 
   computed: {
+
+
     userInfo() {
       return this.$store.state.userAuthentication.userInfo
     },
@@ -163,6 +173,16 @@ export default {
 @media screen and (max-width: 700px) {
     #title-app{
       display: none;
+    }
+    .Autocomplete{
+      display: none!important;
+    }
+
+}
+
+@media screen and (min-width: 700px) {
+    .spacer-mobile{
+      display: block!important;
     }
 }
 

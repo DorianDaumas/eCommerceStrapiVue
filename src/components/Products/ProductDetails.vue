@@ -240,6 +240,15 @@ export default {
         background: transparent!important;
         border-radius: 4px;
     }
+    .flex-details-image{
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-details-image-slide{
+        display: flex;
+        flex-direction: row!important;
+    }
+
 }
 
 .details{
@@ -291,7 +300,6 @@ export default {
 .flex-details-image-slide{
     display: flex;
     flex-direction: column;
-
 }
 
 .article-title{
