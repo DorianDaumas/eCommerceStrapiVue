@@ -2,10 +2,10 @@
     <v-row style="background: white;" justify="center" align="center">
       <v-col cols="12" md="6">
         <v-subheader v-if="product == null && getProducts == null">
-          Résultats : 0 produits trouvés categroire
+          Résultats : 0 produits trouvés 
         </v-subheader>  
         <v-subheader v-else>
-          Résultats : {{product.length}} produits trouvés categroire
+          Résultats : {{product.length}} produits trouvés 
         </v-subheader>        
       </v-col>
 

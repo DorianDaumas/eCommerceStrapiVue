@@ -1,85 +1,95 @@
 <template>
     <div class="card">
-            
-        <v-card
-            v-for="(product, index) in products" :key="index"
-            class="mx-auto my-12 cardSpace"
-            max-width="300"
-            max-height= "100%"
-        >
-        <v-img
-            class="imgResize"
-            :src="`${product.Image[0].url}`"
-        ></v-img>
+        <div v-if="products !== null"> 
+            <v-card
+                v-for="(product, index) in products" :key="index"
+                class="mx-auto my-12 cardSpace"
+                max-width="300"
+                max-height= "100%"
+            >
+            <v-img
+                class="imgResize"
+                :src="`${product.Image[0].url}`"
+            ></v-img>
 
-        <h1 class="product-title">{{product.Title}}</h1>
+            <h1 class="product-title">{{product.Title}}</h1>
 
-        <v-card-text>
-        <v-row
-            align="center"
-            class="mx-0"
-        >
-            <v-rating
-            :value="product.Note - 0.5"
-            background-color="#eee"
-            color="yellow"
-            dense
-            readonly
-            half-increments
-            class="rating"
-            size="14"
-            ></v-rating>
+            <v-card-text>
+            <v-row
+                align="center"
+                class="mx-0"
+            >
+                <v-rating
+                :value="product.Note - 0.5"
+                background-color="#eee"
+                color="yellow"
+                dense
+                readonly
+                half-increments
+                class="rating"
+                size="14"
+                ></v-rating>
 
-            <div class="grey--text ml-4">
-            {{product.Note - 0.5}}
-            </div>
-        </v-row>
-        <v-card-text class="flex-price">
-            <h1 class="price">{{new Intl.NumberFormat().format(product.Price)}} €</h1>
-        
-            <v-card-title class="stock-good" v-if="product.stocks > 15"> En stocks </v-card-title>
-            <v-card-title class="stock-critical" v-else-if="product.stocks < 14 && product.stocks > 1 "> Bientot indisponible </v-card-title>
-            <v-card-title class="stock-none" v-else-if="product.stocks < 1 && product.stocks == 0 "> Indisponible </v-card-title>
-            
-
-        </v-card-text>
-        <div class="my-4 flex-btn subtitle-1">
-            <v-btn
-                color="#3e3f43"
-                class="btn-add-cart ma-2 white--text"
-                @click='showProduct(product.id)'
-                >
-                VOIR PLUS
-            </v-btn>
-           
-            <div v-if="product.checkQuantity > 0 || checkCartProductsQuantity.checkQuantity > 0" class="flex-quantity margin-quantity">
-                <v-btn @click.stop.prevent='removeQuantity(product)' color="error">-</v-btn>
-                <div class="flex-add-quantity">
-                    <p class="add-quantity">quantité : </p>
-                    <p>x {{product.checkQuantity}}</p>
+                <div class="grey--text ml-4">
+                {{product.Note - 0.5}}
                 </div>
-                <v-btn @click.stop.prevent='addQuantity(product)' color="success">+</v-btn>
-            </div>
+            </v-row>
+            <v-card-text class="flex-price">
+                <h1 class="price">{{new Intl.NumberFormat().format(product.Price)}} €</h1>
             
-             <v-btn
-                v-else
-                color="#3e3f43"
-                class="btn-add-cart ma-2 white--text"
-                @click.stop.prevent="addCart(product)"
-                >
-                Ajouter au panier
-                <v-icon
-                    right
-                    dark
-                >
-                    mdi-cart-plus
-                </v-icon>
-            </v-btn>
+                <v-card-title class="stock-good" v-if="product.stocks > 15"> En stocks </v-card-title>
+                <v-card-title class="stock-critical" v-else-if="product.stocks < 14 && product.stocks > 1 "> Bientot indisponible </v-card-title>
+                <v-card-title class="stock-none" v-else-if="product.stocks < 1 && product.stocks == 0 "> Indisponible </v-card-title>
+                
 
+            </v-card-text>
+            <div class="my-4 flex-btn subtitle-1">
+                <v-btn
+                    color="#3e3f43"
+                    class="btn-add-cart ma-2 white--text"
+                    @click='showProduct(product.id)'
+                    >
+                    VOIR PLUS
+                </v-btn>
             
+                <div v-if="product.checkQuantity > 0 || checkCartProductsQuantity.checkQuantity > 0" class="flex-quantity margin-quantity">
+                    <v-btn @click.stop.prevent='removeQuantity(product)' color="error">-</v-btn>
+                    <div class="flex-add-quantity">
+                        <p class="add-quantity">quantité : </p>
+                        <p>x {{product.checkQuantity}}</p>
+                    </div>
+                    <v-btn @click.stop.prevent='addQuantity(product)' color="success">+</v-btn>
+                </div>
+                
+                <v-btn
+                    v-else
+                    color="#3e3f43"
+                    class="btn-add-cart ma-2 white--text"
+                    @click.stop.prevent="addCart(product)"
+                    >
+                    Ajouter au panier
+                    <v-icon
+                        right
+                        dark
+                    >
+                        mdi-cart-plus
+                    </v-icon>
+                </v-btn>
+
+                
+            </div>
+            </v-card-text>
+        </v-card>
+    </div>
+    <div v-else>
+        <p>Chargement des produits</p>
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
         </div>
-        </v-card-text>
-    </v-card>
+    </div>
 </div>
 </template>
 
