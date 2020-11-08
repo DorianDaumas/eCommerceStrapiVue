@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
     const state = {
-        toggle: true,
+        toggle: false,
     }
 
     // const getters = {
@@ -25,15 +25,6 @@ Vue.use(Vuex)
         }
     }   
      
-    // const actions = {
-
-    //     TOGGLE_MENU(){
-    //         this.state.toggle = !this.state.toggle
-    //         console.log(this.state.toggle,"this.state.toggle")
-    //     },
-    // }
-
-
 
 export default {
     namespaced: true,

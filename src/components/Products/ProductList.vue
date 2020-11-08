@@ -1,6 +1,6 @@
 <template>
-    <div class="card">
-        <div v-if="products !== null"> 
+    <div >
+        <div class="card" v-if="products !== null"> 
             <v-card
                 v-for="(product, index) in products" :key="index"
                 class="mx-auto my-12 cardSpace"

@@ -11,7 +11,7 @@
 
       <v-app-bar-nav-icon @click='toggleMenu' v-else ></v-app-bar-nav-icon>
       
-      <v-toolbar-title id="title-app">E-commerce</v-toolbar-title>
+      <v-toolbar-title @click='toggleMenu' id="title-app">MENU</v-toolbar-title>
 
       
     <v-spacer></v-spacer> 
@@ -171,9 +171,7 @@ export default {
 
 
 @media screen and (max-width: 700px) {
-    #title-app{
-      display: none;
-    }
+
     .Autocomplete{
       display: none!important;
     }
@@ -186,6 +184,10 @@ export default {
     }
 }
 
+#title-app{
+  cursor: pointer;
+  padding-left: 0px!important;
+}
 .v-input__slot{
   min-height: 28!important;
 }
