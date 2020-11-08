@@ -2,9 +2,10 @@
     <div class="Sidebar"  v-bind:class="{ 'SidebarHide' : this.open }">
         <SidebarCart />
         <SidebarFilter />
+        <div class="Autocomplete-sidebar">
         <h3 class="sidebarTitle" id="padding-tittle">RECHERCHE</h3>
         <v-autocomplete
-              class="Autocomplete-sidebar"
+              
               v-model="values"
               :items="items"
               label="Chercher un produit..."
@@ -15,6 +16,7 @@
               @change='showProduct(values)'
               append-icon="mdi-magnify"
         ></v-autocomplete>
+        </div>
     </div>
 </template>
 <script>
@@ -68,7 +70,7 @@ export default {
         padding: 10px;
         position: fixed;
         z-index: 1;
-        top: 50px;
+        top: 55px;
         overflow: auto;
         z-index: 9999999!important;
         transition: 0.3s;
@@ -84,7 +86,7 @@ export default {
         padding: 10px;
         position: fixed;
         z-index: 1;
-        top: 50px;
+        top: 55px;
         transition: 0.3s;
         overflow: auto;
         left: 0;
