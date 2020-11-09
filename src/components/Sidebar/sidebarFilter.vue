@@ -10,7 +10,6 @@
                     :label="categorie"
                     :value="categorie"
                     @change="filter"
-                    @click='onResize'
                 ></v-checkbox>
                 
             </v-container>
@@ -37,12 +36,17 @@ export default {
     }, 
 
     created() {
-        window.addEventListener('resize', this.onResize)
-        this.onResize
+        // window.addEventListener('resize', this.onResize)
+        if (this.isMobile()) {
+            this.$store.commit("toggleMenu/CLOSE_MENU")
+        }
+        else {
+            this.$store.commit("toggleMenu/OPEN_MENU")
+        }
     },
 
     beforeDestroy() {
-        window.removeEventListener('resize', this.onResize)
+        // window.removeEventListener('resize', this.onResize)
     },
 
     computed: {
@@ -67,16 +71,15 @@ export default {
             this.$store.dispatch('filter/FILTERED_CATEGORIE', value)
             window.scrollTo(0,0);
         },
-        onResize(){
-            if (window.innerWidth < 1000) {
-                 console.log(window.innerWidth,"window.innerWidth")
-                 this.$store.commit("toggleMenu/CLOSE_MENU")
-            } 
-            else{
-                this.$store.commit("toggleMenu/OPEN_MENU")
+        isMobile() {
+            if( screen.width <= 1000 ) {
+                return true;
             }
-            
-        },
+            else {
+                return false;
+            }
+        }
+
     },
 }
 </script>
