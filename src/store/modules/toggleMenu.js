@@ -13,7 +13,7 @@ Vue.use(Vuex)
             state.toggle = !state.toggle;
         },
         CLOSE_MENU(state) {
-            state.toggle = false;
+            state.toggle = true;
         },
     }
 
