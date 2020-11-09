@@ -50,7 +50,7 @@
                     <p style="font-style: italic;color: #757575;">Ce produit est dans votre panier.</p>
                 </div>
                 
-                <v-btn
+                <!-- <v-btn
                     v-else
                     color="#3e3f43"
                     class="btn-add-cart ma-2 white--text"
@@ -63,7 +63,7 @@
                     >
                         mdi-cart-plus
                     </v-icon>
-                </v-btn>
+                </v-btn> -->
             </v-col>
 
             <h2 id="decription">DESCRIPTION</h2>
@@ -136,9 +136,9 @@ export default {
         changeImg(payload){
             this.img = payload
         },
-        addCart(product){
-            this.$store.dispatch('addCart/ADD_PRODUCT_CART', product)
-        },
+        // addCart(product){
+        //     this.$store.dispatch('addCart/ADD_PRODUCT_CART', product)
+        // },
         details(){
                 let productID = this.$route.params.id
                 axios.get(`${BaseUrl}Products`, {}).then(response => {
