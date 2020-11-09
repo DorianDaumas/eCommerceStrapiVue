@@ -67,10 +67,13 @@ export default {
             window.scrollTo(0,0);
         },
         onResize(){
-             if (window.innerWidth < 1000) {
+            if (window.innerWidth < 1000) {
                  console.log(window.innerWidth,"window.innerWidth")
                  this.$store.commit("toggleMenu/CLOSE_MENU")
             } 
+            else{
+                this.$store.commit("toggleMenu/OPEN_MENU")
+            }
             
         },
     },
