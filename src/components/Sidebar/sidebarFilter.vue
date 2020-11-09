@@ -10,6 +10,7 @@
                     :label="categorie"
                     :value="categorie"
                     @change="filter"
+                    @click='isMobile'
                 ></v-checkbox>
                 
             </v-container>
