@@ -7,11 +7,9 @@
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
       
-
-
-      <v-app-bar-nav-icon @click='toggleMenu' v-else ></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon class="mobile-only" @click='toggleMenu' v-else ></v-app-bar-nav-icon>
       
-      <v-toolbar-title @click='toggleMenu' id="title-app">MENU</v-toolbar-title>
+      <v-toolbar-title class="mobile-only" @click='toggleMenu' id="title-app">MENU</v-toolbar-title>
 
       
     <v-spacer></v-spacer> 
@@ -122,7 +120,7 @@ export default {
       })
     },
     goBack(){
-      this.$store.commit("toggleMenu/TOGGLE_MENU")
+      this.$store.commit("toggleMenu/CLOSE_MENU")
       this.$router.push('/')
     },
     goCart(){
@@ -184,6 +182,9 @@ export default {
     .spacer-mobile{
       display: block!important;
     }
+    // .mobile-only{
+    //   display: none!important;
+    // }
 }
 
 #title-app{

@@ -10,7 +10,7 @@
                     :label="categorie"
                     :value="categorie"
                     @change="filter"
-                    @click='toggleMenu'
+                    @click='onResize'
                 ></v-checkbox>
                 
             </v-container>
@@ -35,6 +35,15 @@ export default {
             selected: null
         }
     }, 
+
+    created() {
+        window.addEventListener('resize', this.onResize)
+    },
+
+    beforeDestroy() {
+        window.removeEventListener('resize', this.onResize)
+    },
+
     computed: {
         ...mapGetters({
                 choosenCategorie: 'choosenCategorie'
@@ -57,8 +66,12 @@ export default {
             this.$store.dispatch('filter/FILTERED_CATEGORIE', value)
             window.scrollTo(0,0);
         },
-        toggleMenu(){
-            this.$store.commit("toggleMenu/TOGGLE_MENU")
+        onResize(){
+             if (window.innerWidth < 1000) {
+                 console.log(window.innerWidth,"window.innerWidth")
+                 this.$store.commit("toggleMenu/CLOSE_MENU")
+            } 
+            
         },
     },
 }
