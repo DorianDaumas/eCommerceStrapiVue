@@ -80,7 +80,7 @@ export default {
         left: 0;
         width: 300px;
         background: white;
-        height: calc(100% - 20px);
+        /* height: calc(100% - 20px); */
         border-right: 1px solid #d9d9d9;
     }
     .Sidebar{
@@ -94,7 +94,7 @@ export default {
         left: 0;
         width: 300px;
         background: white;
-        height: calc(100% - 20px);
+        /* height: calc(100% - 20px); */
         border-right: 1px solid #d9d9d9;
     }
 </style>
