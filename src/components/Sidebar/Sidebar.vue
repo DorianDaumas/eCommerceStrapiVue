@@ -38,8 +38,6 @@ export default {
     }, 
     methods: {
         showProduct(values){
-           
-            this.$store.commit("toggleMenu/CLOSE_MENU")
             this.$router.push(`/product/${values.id}`)
         },
     },
