@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
     const state = {
-        toggle: true,
+        toggle: false,
     }
 
 
@@ -13,7 +13,7 @@ Vue.use(Vuex)
             state.toggle = !state.toggle;
         },
         CLOSE_MENU(state) {
-            state.toggle = true;
+            state.toggle = false;
         },
     }
 
