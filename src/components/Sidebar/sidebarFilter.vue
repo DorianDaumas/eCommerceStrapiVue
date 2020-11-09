@@ -37,17 +37,17 @@ export default {
     }, 
 
     created() {
-        // window.addEventListener('resize', this.onResize)
+        window.addEventListener('resize', this.onResize)
         if (this.isMobile()) {
-            this.$store.commit("toggleMenu/CLOSE_MENU")
+            this.$store.commit("toggleMenu/OPEN_MENU")
         }
         else {
-            this.$store.commit("toggleMenu/OPEN_MENU")
+            this.$store.commit("toggleMenu/CLOSE_MENU")
         }
     },
 
     beforeDestroy() {
-        // window.removeEventListener('resize', this.onResize)
+        window.removeEventListener('resize', this.onResize)
     },
 
     computed: {
@@ -72,11 +72,17 @@ export default {
             this.$store.dispatch('filter/FILTERED_CATEGORIE', value)
             window.scrollTo(0,0);
         },
+        onResize(){
+            this.isMobile()
+        },
         isMobile() {
-            if( screen.width <= 1000 ) {
+            if( window.innerWidth <= 1000 ) {
+                console.log(window.innerWidth,"screen.width")
+                this.$store.commit("toggleMenu/OPEN_MENU")
                 return true;
             }
             else {
+                this.$store.commit("toggleMenu/CLOSE_MENU")
                 return false;
             }
         }
