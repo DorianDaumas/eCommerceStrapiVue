@@ -76,7 +76,7 @@ export default {
         z-index: 1;
         top: 55px;
         overflow: auto;
-        z-index: 9999999!important;
+        z-index: 999999!important;
         transition: 0.3s;
         transform: translateX(-300px)!important;
         left: 0;
@@ -86,7 +86,7 @@ export default {
         border-right: 1px solid #d9d9d9;
     }
     .Sidebar{
-        z-index: 9999999!important;
+        z-index: 999999!important;
         padding: 10px;
         position: fixed;
         z-index: 1;

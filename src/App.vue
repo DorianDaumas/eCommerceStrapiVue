@@ -187,6 +187,7 @@ export default {
     // }
 }
 
+
 #title-app{
   cursor: pointer;
   padding-left: 0px!important;
