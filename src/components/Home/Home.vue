@@ -101,7 +101,7 @@ export default {
     margin: 10px;
     left: 400px;
     width: calc(100% - 500px);
-    
+    overflow: hidden;
     transition: 0.3s;
 }
 .product-component{
@@ -115,5 +115,6 @@ export default {
     top: 90px;
     left: 0;
     width: 100%;
+    overflow: hidden;
 }
 </style>
