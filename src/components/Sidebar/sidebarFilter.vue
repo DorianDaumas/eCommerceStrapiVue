@@ -39,10 +39,10 @@ export default {
     created() {
         window.addEventListener('resize', this.onResize)
         if (this.isMobile()) {
-            this.$store.commit("toggleMenu/OPEN_MENU")
+            this.$store.commit("toggleMenu/CLOSE_MENU")
         }
         else {
-            this.$store.commit("toggleMenu/CLOSE_MENU")
+            this.$store.commit("toggleMenu/OPEN_MENU")
         }
     },
 
@@ -78,11 +78,11 @@ export default {
         isMobile() {
             if( window.innerWidth <= 1000 ) {
                 console.log(window.innerWidth,"screen.width")
-                this.$store.commit("toggleMenu/OPEN_MENU")
+                this.$store.commit("toggleMenu/CLOSE_MENU")
                 return true;
             }
             else {
-                this.$store.commit("toggleMenu/CLOSE_MENU")
+                this.$store.commit("toggleMenu/OPEN_MENU")
                 return false;
             }
         }
