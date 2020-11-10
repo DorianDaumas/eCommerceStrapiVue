@@ -8,8 +8,8 @@
 import SidebarCart from './sidebarCart'
 import SidebarFilter from './sidebarFilter'
 import { mapState  } from "vuex";
-import {BaseUrl} from '../../api'
-import axios from 'axios'
+// import {BaseUrl} from '../../api'
+// import axios from 'axios'
 
 export default {
     components:{
