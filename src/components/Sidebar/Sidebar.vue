@@ -12,6 +12,7 @@
               item-text="Title"
               style="margin-top: 30px;"
               item-value="id"
+              filled
               return-object
               @click.stop.prevent='showProduct(values)'
               append-icon="mdi-magnify"
