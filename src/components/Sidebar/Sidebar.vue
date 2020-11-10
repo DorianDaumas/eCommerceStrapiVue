@@ -22,9 +22,7 @@ export default {
         }
     }, 
     methods: {
-        showProduct(values){
-            this.$router.push(`/product/${values.id}`)
-        },
+        
     },
     created() {
         axios.get(`${BaseUrl}Products`, {}).then(response => {
