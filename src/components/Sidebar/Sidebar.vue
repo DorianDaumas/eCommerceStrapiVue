@@ -1,24 +1,7 @@
 <template>
     <div class="Sidebar"  v-bind:class="{ 'SidebarHide' : this.open }">
         <SidebarCart />
-        
-        <div class="Autocomplete-sidebar">
-        <h3 class="sidebarTitle" id="padding-tittle">RECHERCHE</h3>
-        <v-autocomplete
-              
-              v-model="values"
-              :items="items"
-              label="Chercher un produit..."
-              item-text="Title"
-              style="margin-top: 30px;"
-              item-value="id"
-         
-              return-object
-              @change='showProduct(values)'
-              append-icon="mdi-magnify"
-        ></v-autocomplete>
-        </div>
-         <SidebarFilter />
+        <SidebarFilter />
     </div>
 </template>
 <script>
@@ -40,7 +23,6 @@ export default {
     }, 
     methods: {
         showProduct(values){
-this.$store.commit("toggleMenu/OPEN_MENU")
             this.$router.push(`/product/${values.id}`)
         },
     },
