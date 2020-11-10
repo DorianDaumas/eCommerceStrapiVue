@@ -1,7 +1,7 @@
 <template>
     <div class="Sidebar"  v-bind:class="{ 'SidebarHide' : this.open }">
         <SidebarCart />
-        <SidebarFilter />
+        
         <div class="Autocomplete-sidebar">
         <h3 class="sidebarTitle" id="padding-tittle">RECHERCHE</h3>
         <v-autocomplete
@@ -18,6 +18,7 @@
               append-icon="mdi-magnify"
         ></v-autocomplete>
         </div>
+         <SidebarFilter />
     </div>
 </template>
 <script>
