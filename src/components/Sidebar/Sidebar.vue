@@ -13,7 +13,7 @@
               style="margin-top: 30px;"
               item-value="id"
               return-object
-              @change='showProduct(values)'
+              @change.stop.prevent='showProduct(values)'
               append-icon="mdi-magnify"
         ></v-autocomplete>
         </div>
