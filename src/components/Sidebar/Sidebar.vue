@@ -2,14 +2,14 @@
     <div class="Sidebar"  v-bind:class="{ 'SidebarHide' : this.open }">
         <SidebarCart />
         <SidebarFilter />
+
     </div>
 </template>
 <script>
 import SidebarCart from './sidebarCart'
 import SidebarFilter from './sidebarFilter'
 import { mapState  } from "vuex";
-// import {BaseUrl} from '../../api'
-// import axios from 'axios'
+
 
 export default {
     components:{
@@ -17,8 +17,7 @@ export default {
     },
     data() {
         return {
-            items: null,
-            values:null
+
         }
     }, 
     methods: {
@@ -38,7 +37,7 @@ export default {
             width: 150px!important;
         }
     }
-   
+
     .SidebarHide{
         padding: 10px;
         position: fixed;

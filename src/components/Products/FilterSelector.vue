@@ -39,17 +39,26 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import {BaseUrl} from '../../api'
+import axios from 'axios'
 
 export default {
     data() {
         return {
           selected: null,
           values: null,
+          allProducts:null,
           items: ["Réinitialiser le filtre","Prix croissant","Prix décroissant", "Disponibilité","Note"],
         }
     }, 
     props: {
         getProducts: Array,
+    },
+
+    created() {
+      axios.get(`${BaseUrl}Products`, {}).then(response => {
+          this.allProducts = response.data
+      })
     },
 
     computed: {
