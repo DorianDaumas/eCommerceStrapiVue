@@ -2,7 +2,7 @@
     <v-row style="background: white;" justify="center" align="center">
       
       <v-col cols="12" md="6">  
-        <div class="Autocomplete-sidebar">
+        <div class="Autocomplete-productList">
           <h3 class="sidebarTitle" id="padding-tittle">RECHERCHE</h3>
               <v-autocomplete  
                   v-model="values"
@@ -91,6 +91,13 @@ export default {
 }
 </script>
 <style>
-
+ @media screen and (min-width: 700px) {
+        .Autocomplete-productList{
+            display: none!important;
+        }
+    }
+    .Autocomplete-productList{
+        height: 100%!important;
+    }
 
 </style>

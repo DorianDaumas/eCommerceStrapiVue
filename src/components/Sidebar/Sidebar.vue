@@ -39,14 +39,7 @@ export default {
             width: 150px!important;
         }
     }
-    @media screen and (min-width: 700px) {
-        .Autocomplete-sidebar{
-            display: none!important;
-        }
-    }
-    .Autocomplete-sidebar{
-        height: 100%!important;
-    }
+   
     .SidebarHide{
         padding: 10px;
         position: fixed;
