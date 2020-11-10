@@ -1,5 +1,23 @@
 <template>
     <v-row style="background: white;" justify="center" align="center">
+      
+      <v-col cols="12" md="6">
+        <div class="Autocomplete-sidebar">
+          <h3 class="sidebarTitle" id="padding-tittle">RECHERCHE</h3>
+          <v-autocomplete
+              v-model="values"
+              :items="items"
+              label="Chercher un produit..."
+              item-text="Title"
+              style="margin-top: 30px;"
+              item-value="id"
+              return-object
+              @change='showProduct(values)'
+              append-icon="mdi-magnify">
+           </v-autocomplete>
+        </div>
+      </v-col>
+
       <v-col cols="12" md="6">
         <v-subheader v-if="product == null && getProducts == null">
           Résultats : 0 produits trouvés 
