@@ -2,7 +2,6 @@
     <div class="Sidebar"  v-bind:class="{ 'SidebarHide' : this.open }">
         <SidebarCart />
         <SidebarFilter />
-
     </div>
 </template>
 <script>

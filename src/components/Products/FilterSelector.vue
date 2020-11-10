@@ -85,7 +85,9 @@ export default {
         let selectorWithValue = {value,items}
         this.$store.dispatch('filter/FILTERED_SELECTOR', {selectorWithValue})
 
-      }
+      },
+
+
     },
 
 }
