@@ -2,22 +2,7 @@
     <div class="Sidebar"  v-bind:class="{ 'SidebarHide' : this.open }">
         <SidebarCart />
         <SidebarFilter />
-        <div class="Autocomplete-sidebar">
-        <h3 class="sidebarTitle" id="padding-tittle">RECHERCHE</h3>
-        <v-autocomplete
-              
-              v-model="values"
-              :items="items"
-              label="Chercher un produit..."
-              item-text="Title"
-              style="margin-top: 30px;"
-              item-value="id"
-              filled
-              return-object
-              @click.stop.prevent='showProduct(values)'
-              append-icon="mdi-magnify"
-        ></v-autocomplete>
-        </div>
+
     </div>
 </template>
 <script>
@@ -38,18 +23,9 @@ export default {
         }
     }, 
     methods: {
-        showProduct(values){
-            this.$router.push(`/product/${values.id}`)
-        },
+    
     },
-    created() {
-        axios.get(`${BaseUrl}Products`, {}).then(response => {
-            let allProducts = response.data
-            this.items = allProducts
-        })
 
-     
-    },
     computed: {
         ...mapState({
             open: state => state.toggleMenu.toggle, 
