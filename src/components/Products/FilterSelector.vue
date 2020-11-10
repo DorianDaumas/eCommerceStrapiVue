@@ -6,7 +6,7 @@
           <!-- <h3 class="sidebarTitle" id="padding-tittle">RECHERCHE</h3> -->
               <v-autocomplete  
                   v-model="values"
-                  :items="product"
+                  :items="allProducts"
                   label="Chercher un produit..."
                   item-text="Title"
                   style="margin-top: 30px;"
