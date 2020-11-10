@@ -3,7 +3,7 @@
       
       <v-col cols="12" md="6">  
         <div class="Autocomplete-productList">
-          <h3 class="sidebarTitle" id="padding-tittle">RECHERCHE</h3>
+          <!-- <h3 class="sidebarTitle" id="padding-tittle">RECHERCHE</h3> -->
               <v-autocomplete  
                   v-model="values"
                   :items="product"
