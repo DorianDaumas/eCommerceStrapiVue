@@ -12,9 +12,9 @@
               item-text="Title"
               style="margin-top: 30px;"
               item-value="id"
-              filled
+         
               return-object
-              @click.stop.prevent='showProduct(values)'
+              @change='showProduct(values)'
               append-icon="mdi-magnify"
         ></v-autocomplete>
         </div>
@@ -39,6 +39,7 @@ export default {
     }, 
     methods: {
         showProduct(values){
+this.$store.commit("toggleMenu/OPEN_MENU")
             this.$router.push(`/product/${values.id}`)
         },
     },
