@@ -3,7 +3,7 @@
   <v-card id="header">
     <v-toolbar dense>
 
-      <v-btn v-if="$route.params.id !== undefined || $route.path == '/Panier'" @click='goBack' icon>
+      <v-btn v-if="$route.params.id !== undefined || $route.path == '/Panier'  || $route.path == '/Login'" @click='goBack' icon>
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
       

@@ -21,11 +21,14 @@ Vue.use(Vuex)
     }
 
     const actions = {
-        // USER_INSCRIPTION (payload) {
-        //     axios.get(`${BaseUrl}auth/local/register`, {
-
-        //     })
-        // },
+        USER_INSCRIPTION (payload) {
+            axios.post(`${BaseUrl}auth/local/register`, {
+                firstName: payload.firstName,
+                lastName: payload.lastName,
+                email: payload.email,
+                password: payload.loginPassword
+            })
+        },
         USER_LOGIN ({ commit },payload) {
             axios.post(`${BaseUrl}auth/local`, {
                 identifier: payload.email,
@@ -47,7 +50,6 @@ Vue.use(Vuex)
 export default {
     namespaced: true,
     state,
-    // getters,
     actions,
     mutations
   }

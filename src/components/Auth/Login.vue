@@ -80,14 +80,13 @@ export default {
                 {Inscription:"Inscription", accountOutline:"mdi-account-outline"}
             ],
             valid: true,
-            
             firstName: "",
             lastName: "",
             email: "",
             password: "",
             verify: "",
-            loginPassword: "",
-            loginEmail: "",
+            loginPassword: "Test123456",
+            loginEmail: "test@test.fr",
             loginEmailRules: [
             v => !!v || "Obligatoire",
             v => /.+@.+\..+/.test(v) || "E-mail doit être valid"
@@ -107,7 +106,7 @@ export default {
 
     computed: {
         passwordMatch() {
-        return () => this.password === this.verify || "les mots de passe doivent être identiques";
+            return () => this.password === this.verify || "les mots de passe doivent être identiques";
         }
     },
     methods: {
@@ -126,7 +125,6 @@ export default {
                 password: this.loginPassword
             }
             this.$store.dispatch('userAuthentication/USER_LOGIN', dataLogin)
-            // this.$store.dispatch('filter/CONNEXION', value)
         },
         reset() {
             this.$refs.form.reset();

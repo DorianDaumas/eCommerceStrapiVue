@@ -10,17 +10,11 @@ Vue.use(Vuex)
         ADD_PRODUCT_QUANTITY({commit},product){
             commit('cart/ADD_QUANTITY', product, { root: true })
         },
-        REMOVE_PRODUCT_QUANTITY({commit},product){
-            commit('cart/REMOVE_QUANTITY', product, { root: true })
-        }
-
     }
 
 
 
 export default {
     namespaced: true,
-    // state,
-    // getters,
     actions,
   }

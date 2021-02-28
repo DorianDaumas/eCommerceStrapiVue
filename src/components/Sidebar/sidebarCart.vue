@@ -40,25 +40,6 @@ export default {
         }
     },
     computed: {
-        checkCartProducts() {
-            let results = this.products
-            let checkCartProducts = this.$store.state.cart.getcart
-            let checkQuantity = {checkQuantity: 0}
-            results.map( products => {
-                let checkProducts = checkCartProducts.find(productCart => productCart.id === products.id) 
-                if (checkProducts) {
-                    checkQuantity = {checkQuantity: checkProducts.checkQuantity}
-                    Object.assign(products,checkQuantity);    
-                }
-                else{
-                    checkQuantity = {checkQuantity: 0}
-                    Object.assign(products,checkQuantity);                    
-                }
-
-            })
-            return results
-            
-        },
         cartProducts() {
             return this.$store.state.cart.getcart
         },

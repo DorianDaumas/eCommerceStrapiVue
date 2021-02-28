@@ -7,6 +7,9 @@ Vue.use(Vuex)
         REMOVE_PRODUCT_CART ({commit}, product) {
             commit('cart/REMOVE_PRODUCT', product, { root: true })
         },
+        REMOVE_PRODUCT_QUANTITY({commit},product){
+            commit('cart/REMOVE_QUANTITY', product, { root: true })
+        }
     }
 
 

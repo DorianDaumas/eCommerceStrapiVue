@@ -50,45 +50,25 @@
                     <p style="font-style: italic;color: #757575;">Ce produit est dans votre panier.</p>
                 </div>
                 
-                <!-- <v-btn
-                    v-else
-                    color="#3e3f43"
-                    class="btn-add-cart ma-2 white--text"
-                    @click.stop.prevent="addCart(product)"
-                    >
-                    Ajouter au panier
-                    <v-icon
-                        right
-                        dark
-                    >
-                        mdi-cart-plus
-                    </v-icon>
-                </v-btn> -->
             </v-col>
 
             <h2 id="decription">DESCRIPTION</h2>
             <p  class="product-description"><span v-html="product.Description"></span></p>
 
             <h2 style="margin: auto;" id="decription">ARTICLES SIMILAIRES</h2>
-        
+        </v-row>
+    </v-container>
 
-       
-        <!-- <div class="hr-article"></div>
-        <h1 class="article">Articles similaires </h1> -->
-</v-row>
-        </v-container>
         <div class="article-similaire">
             <v-container class="container-article"  fluid>
                 <v-row  style="justify-content:space-evenly;" align="center">
                     <v-col v-for="(article, index) in similaire" class="background-article" :key="index" cols="12" md="4">
                     <v-card @click='showProduct(article)'  class="flex-article-similaire" >
                         <v-img class="img-article" width="210" :src="`${article.Image[0].url}`" ></v-img>
-
                             <v-card-title class="Title-article">{{article.Title}}</v-card-title>
                             <v-card-title class="stock-good" v-if="article.stocks > 15"> En stocks </v-card-title>
                             <v-card-title class="stock-critical" v-else-if="article.stocks < 14 && article.stocks > 1 "> Bientot indisponible </v-card-title>
                             <v-card-title class="stock-none" v-else-if="article.stocks < 1 && article.stocks == 0 "> Indisponible </v-card-title>
-
                             <v-card-title class="Title-article">{{new Intl.NumberFormat().format(article.Price)}} €</v-card-title>
                     </v-card>
                     </v-col>
@@ -120,9 +100,7 @@ export default {
         checkInCart(){
             let checkInCart = this.$store.state.cart.getcart
             let checkProducts = checkInCart.find(productCart => productCart.id === this.productDetails[0].id)
-
-            return checkProducts
-                       
+            return checkProducts         
         }
     },
 
@@ -136,9 +114,6 @@ export default {
         changeImg(payload){
             this.img = payload
         },
-        // addCart(product){
-        //     this.$store.dispatch('addCart/ADD_PRODUCT_CART', product)
-        // },
         details(){
                 let productID = this.$route.params.id
                 axios.get(`${BaseUrl}Products`, {}).then(response => {
@@ -153,7 +128,6 @@ export default {
 
     created() {
         this.details()
-        
     },
 
 

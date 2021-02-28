@@ -52,7 +52,7 @@
                     VOIR PLUS
                 </v-btn>
             
-                <div v-if="product.checkQuantity > 0 || checkCartProductsQuantity.checkQuantity > 0" class="flex-quantity margin-quantity">
+                <div v-if="product.checkQuantity > 0" class="flex-quantity margin-quantity">
                     <v-btn @click.stop.prevent='removeQuantity(product)' color="error">-</v-btn>
                     <div class="flex-add-quantity">
                         <p class="add-quantity">quantité : </p>
@@ -110,26 +110,6 @@ export default {
     created() {
     },
     computed: {
-
-        checkCartProductsQuantity() {
-            let results = this.products
-            let checkCartProducts = this.$store.state.cart.getcart
-            let checkQuantity = {checkQuantity: 0}
-            results.map( products => {
-                let checkProducts = checkCartProducts.find(productCart => productCart.id === products.id) 
-                if (checkProducts) {
-                    checkQuantity = {checkQuantity: checkProducts.checkQuantity}
-                    Object.assign(products,checkQuantity);    
-                }
-                else{
-                    checkQuantity = {checkQuantity: 0}
-                    Object.assign(products,checkQuantity); 
-                }
-
-            })
-            return results
-            
-        },
         selector(){
             return this.$store.state.filter.selector
         },
@@ -137,10 +117,9 @@ export default {
             return this.$store.state.filter.selectedSelector
         },
         products(){
-                if (this.selector === null) {
-                    return this.getProducts    
-                }
-
+            if (this.selector === null) {
+                return this.getProducts    
+            }
                 if (this.selectedSelector == this.selector[0]) {
                     if (this.getProducts === null) {
                         return this.getProducts    
@@ -148,7 +127,6 @@ export default {
                     else{
                         return this.getProducts.slice().sort( () => Math.random() - 0.5)
                     }
-                     
                 }
                 else if (this.selectedSelector == this.selector[1]) {
                     if (this.getProducts === null) {
@@ -156,8 +134,7 @@ export default {
                     }
                     else{
                         return this.getProducts.slice().sort((a, b) => a.Price > b.Price ? 1 : b.Price > a.Price ? -1 : 0 )
-                    }
-                        
+                    }   
                 }
                 else if (this.selectedSelector == this.selector[2]) {
                     if (this.getProducts === null) {
@@ -165,8 +142,7 @@ export default {
                     }
                     else{
                         return this.getProducts.slice().sort((a, b) => a.Price > b.Price ? -1 : b.Price > a.Price ? 1 : 0)
-                    }
-                      
+                    }     
                 }
                 else if (this.selectedSelector == this.selector[3]) {
                     if (this.getProducts === null) {
@@ -197,13 +173,13 @@ export default {
             this.$router.push(`/product/${productID}`)
         },
         addQuantity(product){
-            this.$store.dispatch('addCart/ADD_PRODUCT_QUANTITY', product)
+            this.$store.dispatch('addItemCart/ADD_PRODUCT_QUANTITY', product)
         },
         removeQuantity(product){
-            this.$store.dispatch('addCart/REMOVE_PRODUCT_QUANTITY', product)
+            this.$store.dispatch('removeItemCart/REMOVE_PRODUCT_QUANTITY', product)
         },
         addCart(product){ 
-            this.$store.dispatch('addCart/ADD_PRODUCT_CART', product)
+            this.$store.dispatch('addItemCart/ADD_PRODUCT_CART', product)
         }
     },
 }

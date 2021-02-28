@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import filter from './modules/filter'
-import addCart from './modules/addCart'
+import addItemCart from './modules/addItemCart'
 import removeItemCart from './modules/removeItemCart'
 import cart from './modules/cart'
 import userAuthentication from './modules/userAuthentication'
@@ -14,7 +14,7 @@ export default new Vuex.Store({
   modules: {
     userAuthentication,
     filter,
-    addCart,
+    addItemCart,
     removeItemCart,
     cart,
     toggleMenu

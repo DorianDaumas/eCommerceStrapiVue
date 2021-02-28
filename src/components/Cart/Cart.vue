@@ -91,40 +91,28 @@ export default {
     }, 
 
     mounted() {
-        console.log(this.cartProducts,"aefzefnzef")
     },
     
     computed: {
-        test(){
-            let sum = 0;
-            this.cartProducts.forEach(e => {
-                        sum += e.checkQuantity;
-                    });
-                    console.log(sum,"efzefzef")
-                    return sum
-        },
         cartProducts() {
             return this.$store.state.cart.getcart
         },
         total(){
             let sum = 0;
             this.cartProducts.forEach(e => {
-                        sum += e.Price * e.checkQuantity;
-                    });
-                    
-                    return sum
+                sum += e.Price * e.checkQuantity;
+            });
+            return sum
         }
         
     },
 
     methods: {
- 
         addQuantity(product){
-            this.$store.dispatch('addCart/ADD_PRODUCT_QUANTITY', product)
-
+            this.$store.dispatch('addItemCart/ADD_PRODUCT_QUANTITY', product)
         },
         removeQuantity(product){
-            this.$store.dispatch('addCart/REMOVE_PRODUCT_QUANTITY', product)
+            this.$store.dispatch('removeItemCart/REMOVE_PRODUCT_QUANTITY', product)
         },
         deleteItem(product){
             this.$store.dispatch('removeItemCart/REMOVE_PRODUCT_CART', product)
